@@ -21,27 +21,28 @@ pinMode(right_sensor,INPUT);
 void loop() {
  if(analogRead(left_sensor)>500 && analogRead(right_sensor)<500)
  {
-  digitalWrite(left_motor_forward,HIGH);
-  digitalWrite(right_motor_forward,HIGH);
+  analogWrite(left_motor_forward,250);
+  analogWrite(right_motor_forward,250);
  }
 
 else if(analogRead(left_sensor)<500 && analogRead(right_sensor)>=500)
  {
-  digitalWrite(left_motor_forward,HIGH);
-  digitalWrite(right_motor_forward,LOW);
+  analogWrite(left_motor_forward,180);
+  analogWrite(right_motor_forward,0);
  }
 
  
  else if(analogRead(left_sensor)>=500 && analogRead(right_sensor)<500)
  {
-  digitalWrite(left_motor_forward,LOW);
-  digitalWrite(right_motor_forward,HIGH);
+  analogWrite(left_motor_forward,0);
+  analogWrite(right_motor_forward,180);
  }
 
 
 else
 {
-   digitalWrite(left_motor_forward,LOW);
-  digitalWrite(right_motor_forward,HIGH);
+   analogWrite(left_motor_forward,0);
+  analogWrite(right_motor_forward,0);
 }
 delay(10);
+}
